@@ -88,12 +88,85 @@ binaryTreeMethods.depthFirstLog = function(func){
   //       handleAll(node.right);
   //     }
 
-  //   };
+  //   };\
 
   // handleAll(this);
 
 };
-
 binaryTreeMethods.breadthFirstLog = function(func){
 
-}
+  // func(this.value);
+
+  // var handle = function(node){
+  //   if(this.left !== null) {
+  //     func(this.left);
+  //     var left = true;
+  //   } else {
+  //     var left = false;
+  //   }
+
+  //   if(this.right !== null) {
+  //     func(this.right)
+  //     var right = true;
+  //   } else {
+  //     var right = false;
+  //   }
+  //   if(left) {
+  //     handle(this.left);
+  //   }
+  //   if(right) {
+  //     handle(this.right);
+  //   }
+  // };
+
+  // handle(this);
+  //
+
+  var queue = [];
+  queue.push(this);     //5
+  // say queue node
+
+  function deEnqueue(){
+    var tempnode = queue.shift();
+    func(tempnode.value);
+    if (tempnode.left !== null){
+      queue.push(tempnode.left);
+    }
+    if (tempnode.right !== null){
+      queue.push(tempnode.right);
+    }
+  }
+
+  while(queue.length > 0){
+    deEnqueue();
+  }
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
