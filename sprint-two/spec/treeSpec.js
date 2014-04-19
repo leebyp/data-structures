@@ -44,4 +44,42 @@ describe("tree", function() {
     assert.isTrue(tree.contains(8));
   });
 
+  it("should correctly return parent of child", function(){
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.addChild(10);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8);
+    tree.children[2].addChild(11);
+    expect(tree.children[2].children[0].parent.value).to.equal(10);
+    expect(tree.children[1].children[0].parent.value).to.equal(6);
+    expect(tree.children[0].parent.value).to.equal(undefined);
+  });
+
+  it("should correctly detach child tree, and return false for removed value", function(){
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.addChild(10);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8);
+    tree.children[2].addChild(11);
+    tree.children[2].children[0].removeFromParent();
+    assert.isTrue(tree.contains(10));
+    assert.isFalse(tree.children[2].contains(11));
+  });
+
+  it("traverses the tree and invokes a function on every node", function(){
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.addChild(10);
+    tree.children[0].addChild(7);
+    tree.children[1].addChild(8);
+    tree.children[2].addChild(11);
+    var array = [];
+    tree.traverse(function(node){
+      array.push(node.value);
+    });
+    expect(JSON.stringify(array.sort())).to.equal(JSON.stringify([10,11,5,6,7,8, undefined]));
+  });
+
 });
