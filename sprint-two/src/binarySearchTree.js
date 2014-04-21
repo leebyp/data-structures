@@ -9,6 +9,7 @@ var makeBinarySearchTree = function(value){
 
 var binaryTreeMethods = {};
 
+
 binaryTreeMethods.insert = function(value){
   var newNode = makeBinarySearchTree(value);
 
@@ -29,7 +30,7 @@ binaryTreeMethods.insert = function(value){
         handleAll(node.left);
       }
     }
-  }
+  };
 
   handleAll(this);
 
@@ -77,54 +78,27 @@ binaryTreeMethods.depthFirstLog = function(func){
     this.right.depthFirstLog(func);
   }
 
-  //   var handleAll = function(node) {
-  //     func(node.value)
+  // ===== INNER FUNCTION SOLUTION =====
+    //   var handleAll = function(node) {
+    //     func(node.value)
 
-  //     if(node.left !== null) {
-  //       handleAll(node.left);
-  //     }
+    //     if(node.left !== null) {
+    //       handleAll(node.left);
+    //     }
 
-  //     if(node.right !== null) {
-  //       handleAll(node.right);
-  //     }
+    //     if(node.right !== null) {
+    //       handleAll(node.right);
+    //     }
 
-  //   };\
+    //   };
 
-  // handleAll(this);
+    // handleAll(this);
 
 };
 binaryTreeMethods.breadthFirstLog = function(func){
 
-  // func(this.value);
-
-  // var handle = function(node){
-  //   if(this.left !== null) {
-  //     func(this.left);
-  //     var left = true;
-  //   } else {
-  //     var left = false;
-  //   }
-
-  //   if(this.right !== null) {
-  //     func(this.right)
-  //     var right = true;
-  //   } else {
-  //     var right = false;
-  //   }
-  //   if(left) {
-  //     handle(this.left);
-  //   }
-  //   if(right) {
-  //     handle(this.right);
-  //   }
-  // };
-
-  // handle(this);
-  //
-
   var queue = [];
-  queue.push(this);     //5
-  // say queue node
+  queue.push(this);
 
   function deEnqueue(){
     var tempnode = queue.shift();
@@ -141,32 +115,4 @@ binaryTreeMethods.breadthFirstLog = function(func){
     deEnqueue();
   }
 
-
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

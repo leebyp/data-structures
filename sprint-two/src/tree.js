@@ -43,8 +43,8 @@ treeMethods.removeFromParent = function(){
 
 treeMethods.traverse = function(func){
   func(this);
-  console.log(this)
+  console.log(this);
   for (var i=0; i<this.children.length; i++){
     this.children[i].traverse(func);
   }
-}
+};
