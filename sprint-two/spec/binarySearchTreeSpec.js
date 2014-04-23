@@ -1,4 +1,4 @@
-var assert = chai.assert; 
+var assert = chai.assert;
 
 describe("binarySearchTree", function() {
   var binarySearchTree;
@@ -29,31 +29,30 @@ describe("binarySearchTree", function() {
     assert.isTrue(binarySearchTree.contains(7));
     assert.isFalse(binarySearchTree.contains(8));
   });
-  
+
   it("should execute a callback on every value in a tree using 'depthFirstLog'", function(){
     var array = [];
     var func = function(value){ array.push(value); }
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
+    binarySearchTree.insert(8);
     binarySearchTree.insert(6);
     binarySearchTree.insert(1);
-    binarySearchTree.insert(8);    
-    binarySearchTree.insert(9);
+    binarySearchTree.insert(4);
+    console.log(binarySearchTree)
     binarySearchTree.depthFirstLog(func);
-    expect(JSON.stringify(array)).to.equal(JSON.stringify([5,2,1,3,8,6,9]);
+    expect(JSON.stringify(array)).to.equal(JSON.stringify([5,2,1,3,4,8,6]))
   });
 
-   it("should execute a callback on every value in a tree using 'breadthFirstLog'", function(){
+  it("should execute a callback on every value in a tree using 'breadthFirstLog'", function(){
     var array = [];
     var func = function(value){ array.push(value); }
     binarySearchTree.insert(2);
     binarySearchTree.insert(3);
+    binarySearchTree.insert(8);
     binarySearchTree.insert(6);
-    binarySearchTree.insert(1);
-    binarySearchTree.insert(8);    
-    binarySearchTree.insert(9);
-    binarySearchTree.depthFirstLog(func);
-    expect(JSON.stringify(array)).to.equal(JSON.stringify([5,2,8,1,3,6,9]);
+    binarySearchTree.breadthFirstLog(func);
+    expect(JSON.stringify(array)).to.equal(JSON.stringify([5,2,8,3,6]))
   });
 
 });

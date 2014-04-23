@@ -1,0 +1,13 @@
+CPU PROFILER
+
+functional,         151.9ms program
+                    44.9ms  garbage
+
+functional-shared,  119.4ms program
+                    21.3ms garbage
+
+prototypal,         135.7ms program
+                    21.4ms garbage
+
+pseudoclassical,    123.5ms program
+                    24.7ms garbage
